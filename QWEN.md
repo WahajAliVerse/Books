@@ -208,3 +208,9 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Active Technologies
+- Markdown, JavaScript (ES6+), Python (3.8+), Docusaurus (v3) + Docusaurus 3, React 18, Node.js (18+), npm/yarn, ROS 2 (Humble Hawksbill), NVIDIA Isaac Sim, Gazebo Garden, Unity 2023.2 (001-book-physical-ai-spec)
+
+## Recent Changes
+- 001-book-physical-ai-spec: Added Markdown, JavaScript (ES6+), Python (3.8+), Docusaurus (v3) + Docusaurus 3, React 18, Node.js (18+), npm/yarn, ROS 2 (Humble Hawksbill), NVIDIA Isaac Sim, Gazebo Garden, Unity 2023.2

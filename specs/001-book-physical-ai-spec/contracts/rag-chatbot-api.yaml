@@ -1,0 +1,104 @@
+# API Contract: RAG Chatbot Service
+
+## Overview
+This document describes the API contract for the Retrieval-Augmented Generation (RAG) chatbot service that allows users to search and ask questions about the book content.
+
+## Base URL
+`http://localhost:3001/api` (development)
+`https://[domain]/api` (production)
+
+## Endpoints
+
+### POST /search
+Performs a semantic search on the book content based on the user's query.
+
+#### Request
+```json
+{
+  "query": "string (required) - The search query",
+  "topK": "integer (optional, default: 5) - Number of results to return",
+  "filters": "object (optional) - Additional filters for search"
+}
+```
+
+#### Response
+```json
+{
+  "id": "string - Unique ID for the search request",
+  "query": "string - The original query",
+  "results": [
+    {
+      "id": "string - Content block ID",
+      "title": "string - Title of the content block",
+      "content": "string - Excerpt from the content",
+      "chapter": "string - Chapter name",
+      "url": "string - URL to the full content",
+      "similarity": "number - Similarity score between 0 and 1"
+    }
+  ],
+  "timestamp": "string - ISO 8601 timestamp"
+}
+```
+
+#### Error Responses
+- `400 Bad Request`: Missing or invalid query parameter
+- `500 Internal Server Error`: Search service unavailable
+
+### POST /chat
+Processes a chat message and returns an AI-generated response based on the book content.
+
+#### Request
+```json
+{
+  "message": "string (required) - The user's message or question",
+  "sessionId": "string (optional) - Session identifier to maintain conversation context",
+  "history": [
+    {
+      "role": "string (required) - Either 'user' or 'assistant'",
+      "content": "string (required) - The message content"
+    }
+  ]
+}
+```
+
+#### Response
+```json
+{
+  "id": "string - Unique ID for the chat request",
+  "message": "string - The user's original message",
+  "response": "string - AI-generated response based on book content",
+  "sources": [
+    {
+      "title": "string - Title of the source content",
+      "chapter": "string - Chapter name",
+      "url": "string - URL to the source",
+      "confidence": "number - Confidence score between 0 and 1"
+    }
+  ],
+  "sessionId": "string - Session identifier",
+  "timestamp": "string - ISO 8601 timestamp"
+}
+```
+
+#### Error Responses
+- `400 Bad Request`: Missing message parameter
+- `500 Internal Server Error`: Chat service unavailable
+
+### GET /health
+Checks the health status of the RAG service.
+
+#### Response
+```json
+{
+  "status": "string - 'healthy' if service is operational",
+  "timestamp": "string - ISO 8601 timestamp",
+  "version": "string - API version"
+}
+```
+
+## Authentication
+No authentication required for search and chat endpoints in the initial implementation. Future versions may include rate limiting per IP or optional user authentication.
+
+## Rate Limits
+- 100 requests per hour per IP address for anonymous users
+- 1000 requests per hour per authenticated user

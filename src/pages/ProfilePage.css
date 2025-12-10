@@ -1,0 +1,144 @@
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.profile-page-header {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-page-header h1 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 1.8em;
+}
+
+.profile-page-header p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 1.1em;
+}
+
+.profile-page-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 25px;
+}
+
+.preference-section {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.preference-section h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+
+.preference-item {
+  margin: 15px 0;
+}
+
+.preference-item label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.preference-item select, 
+.preference-item input[type="text"], 
+.preference-item input[type="number"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.preference-item.checkbox-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.preference-item input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+}
+
+.safety-description, 
+.description {
+  margin: 5px 0 0 0;
+  font-size: 0.9em;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.preference-actions {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.reset-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.reset-button:hover {
+  background-color: #c0392b;
+}
+
+.constitutional-compliance {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #e8f4f8;
+  border-left: 4px solid #3498db;
+  font-size: 0.9em;
+}
+
+.profile-page-footer {
+  background-color: white;
+  padding: 15px 20px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  color: #7f8c8d;
+  font-size: 0.9em;
+}
+
+.profile-page-footer p {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    margin: 10px;
+    padding: 15px;
+  }
+}
