@@ -1,0 +1,42 @@
+.navbarHidden {
+  transform: translate3d(0, calc(-100% - 2px), 0);
+}
+
+.translation-button {
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.translation-button:hover:not(:disabled) {
+  background-color: #3a5af5;
+}
+
+.translation-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.loading-dots::after {
+  content: '.';
+  animation: loading 1.4s infinite;
+}
+
+@keyframes loading {
+  0%,
+  60%,
+  100% {
+    content: '.';
+  }
+  20% {
+    content: '..';
+  }
+  40% {
+    content: '...';
+  }
+}
