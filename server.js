@@ -9,7 +9,7 @@ const app = express();
 
 // Proxy middleware for API requests to the RAG backend
 const apiProxy = createProxyMiddleware('/api', {
-  target: 'http://localhost:8000',
+  target: 'https://wahaj-ali20-backend-service.hf.space',
   changeOrigin: true,
   pathRewrite: {
     '^/api': '', // Remove /api prefix when forwarding to backend
@@ -29,5 +29,5 @@ app.get('*', (req, res) => {
 
 app.listen(port, host, () => {
   console.log(`Server running at http://${host}:${port}`);
-  console.log(`Proxying /api requests to http://localhost:8000`);
+  console.log(`Proxying /api requests to https://wahaj-ali20-backend-service.hf.space`);
 });

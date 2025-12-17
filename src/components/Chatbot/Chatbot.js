@@ -60,7 +60,7 @@ const Chatbot = () => {
   const callRagBackend = async (query) => {
     // Call the backend RAG API
     try {
-      const response = await fetch('http://localhost:8000/api/chat/message', {
+      const response = await fetch('https://wahaj-ali20-backend-service.hf.space/api/chat/message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -109,7 +109,7 @@ This project implements a complete educational platform for humanoid robotics co
 - **Environment Variables**: Create a `.env` file in the backend directory:
   ```env
   OPENAI_API_KEY=your_openai_key_here  # Optional, for enhanced LLM features
-  CHROMA_ENDPOINT=http://localhost:8000
+  CHROMA_ENDPOINT=https://wahaj-ali20-backend-service.hf.space
   CHROMA_COLLECTION=physical_ai_book
   ```
 

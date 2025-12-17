@@ -208,3 +208,10 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Active Technologies
+- Python 3.11, JavaScript/TypeScript for frontend + FastAPI for backend, React for frontend, Hugging Face Transformers, SentenceTransformers, Qdrant client, Pydantic (002-rag-chatbot)
+- Qdrant vector database for embeddings, local file storage for document preprocessing (002-rag-chatbot)
+
+## Recent Changes
+- 002-rag-chatbot: Added Python 3.11, JavaScript/TypeScript for frontend + FastAPI for backend, React for frontend, Hugging Face Transformers, SentenceTransformers, Qdrant client, Pydantic

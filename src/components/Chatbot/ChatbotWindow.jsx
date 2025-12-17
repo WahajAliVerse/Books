@@ -14,10 +14,8 @@ const ChatbotWindow = ({ onClose }) => {
   useEffect(() => {
     const initSession = async () => {
       try {
-        // Determine the API base URL based on environment
-        const apiBaseUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost'
-          ? 'http://localhost:8000'
-          : '/api'; // For production, assumes proxy at /api path
+        // Use the provided deployed backend URL
+        const apiBaseUrl = 'https://wahaj-ali20-backend-service.hf.space';
 
         const response = await fetch(`${apiBaseUrl}/chat/start`, {
           method: 'POST',
@@ -78,10 +76,8 @@ const ChatbotWindow = ({ onClose }) => {
     setIsLoading(true);
 
     try {
-      // Determine the API base URL based on environment
-      const apiBaseUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost'
-        ? 'http://localhost:8000'
-        : '/api'; // For production, assumes proxy at /api path
+      // Use the provided deployed backend URL
+      const apiBaseUrl = 'https://wahaj-ali20-backend-service.hf.space';
 
       // Send the message to the backend
       const response = await fetch(`${apiBaseUrl}/chat/${sessionId}/message`, {
