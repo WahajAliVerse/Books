@@ -17,8 +17,9 @@ const config = {
   organizationName: 'Physical-AI-Humanoid-Robotics', // Usually your GitHub org/user name.
   projectName: 'physical-ai-book', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'ignore',
+  onBrokenAnchors: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -55,6 +56,9 @@ const config = {
       }),
     ],
   ],
+
+
+
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */

@@ -1,8 +1,8 @@
 # Feature Specification: [FEATURE NAME]
 
-**Feature Branch**: `[###-feature-name]`
-**Created**: [DATE]
-**Status**: Draft
+**Feature Branch**: `[###-feature-name]`  
+**Created**: [DATE]  
+**Status**: Draft  
 **Input**: User description: "$ARGUMENTS"
 
 ## User Scenarios & Testing *(mandatory)*
@@ -11,7 +11,7 @@
   IMPORTANT: User stories should be PRIORITIZED as user journeys ordered by importance.
   Each user story/journey must be INDEPENDENTLY TESTABLE - meaning if you implement just ONE of them,
   you should still have a viable MVP (Minimum Viable Product) that delivers value.
-
+  
   Assign priorities (P1, P2, P3, etc.) to each story, where P1 is the most critical.
   Think of each story as a standalone slice of functionality that can be:
   - Developed independently
@@ -70,30 +70,22 @@
 <!--
   ACTION REQUIRED: The content in this section represents placeholders.
   Fill them out with the right edge cases.
-
-  NOTE: All edge cases must consider safety implications per the Safety-First Design principle
-  of the Physical-AI-Humanoid-Robotic Constitution.
 -->
 
 - What happens when [boundary condition]?
 - How does system handle [error scenario]?
-- What is the fail-safe behavior if [critical system failure]?
-- How does the system respond if safety parameters are exceeded?
 
 ## Requirements *(mandatory)*
 
 <!--
   ACTION REQUIRED: The content in this section represents placeholders.
   Fill them out with the right functional requirements.
-
-  NOTE: All requirements must align with the Physical-AI-Humanoid-Robotic Constitution,
-  particularly safety, ethics, and human oversight requirements.
 -->
 
 ### Functional Requirements
 
 - **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]
+- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
 - **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
@@ -113,9 +105,6 @@
 <!--
   ACTION REQUIRED: Define measurable success criteria.
   These must be technology-agnostic and measurable.
-
-  NOTE: Success criteria must include safety and ethical compliance measures as defined
-  in the Physical-AI-Humanoid-Robotic Constitution.
 -->
 
 ### Measurable Outcomes
