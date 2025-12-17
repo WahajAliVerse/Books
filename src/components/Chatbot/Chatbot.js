@@ -60,7 +60,7 @@ const Chatbot = () => {
   const callRagBackend = async (query) => {
     // Call the backend RAG API
     try {
-      const response = await fetch('http://localhost:3001/api/rag-search/chat', {
+      const response = await fetch('http://localhost:8000/api/chat/message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ const Chatbot = () => {
       const data = await response.json();
 
       // Return the response from the backend
-      return data.response || 'Sorry, I couldn\'t generate a response for that query.';
+      return data.message || 'Sorry, I couldn\'t generate a response for that query.';
     } catch (error) {
       console.error('Error calling RAG backend:', error);
       // If backend call fails, return a fallback response

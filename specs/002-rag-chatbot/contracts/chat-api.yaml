@@ -1,0 +1,206 @@
+# API Contract: RAG Chatbot Service
+
+## Overview
+This document defines the API contract for the RAG-based chatbot service that will be integrated into the Docusaurus book.
+
+## Base URL
+`http://localhost:8000/api/v1` (in development)
+
+## Authentication
+Bearer token authentication required for all endpoints
+```
+Authorization: Bearer {api_token}
+```
+
+## Endpoints
+
+### POST /chat/start
+Start a new chat session
+
+**Request**:
+```json
+{
+  "userId": "string (optional)",
+  "metadata": "object (optional)"
+}
+```
+
+**Response**:
+- 201 Created
+```json
+{
+  "sessionId": "string",
+  "createdAt": "timestamp",
+  "status": "active"
+}
+```
+
+### POST /chat/{sessionId}/message
+Send a message to the chatbot and receive a response
+
+**Path Parameters**:
+- `sessionId`: string - The chat session ID
+
+**Request**:
+```json
+{
+  "message": "string - The user's message/query",
+  "includeSources": "boolean (optional, default: true)"
+}
+```
+
+**Response**:
+- 200 OK
+```json
+{
+  "responseId": "string",
+  "sessionId": "string",
+  "message": "string - The chatbot's response",
+  "timestamp": "timestamp",
+  "sources": [
+    {
+      "sourceId": "string",
+      "sourceTitle": "string",
+      "sourceUrl": "string",
+      "contentExcerpt": "string",
+      "relevanceScore": "number"
+    }
+  ],
+  "relevanceScore": "number"
+}
+```
+
+### GET /chat/{sessionId}
+Get the history of a chat session
+
+**Path Parameters**:
+- `sessionId`: string - The chat session ID
+
+**Response**:
+- 200 OK
+```json
+{
+  "sessionId": "string",
+  "messages": [
+    {
+      "messageId": "string",
+      "sender": "enum (user|bot)",
+      "content": "string",
+      "timestamp": "timestamp",
+      "sources": [
+        {
+          "sourceId": "string",
+          "sourceTitle": "string",
+          "sourceUrl": "string",
+          "contentExcerpt": "string",
+          "relevanceScore": "number"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### DELETE /chat/{sessionId}
+End a chat session
+
+**Path Parameters**:
+- `sessionId`: string - The chat session ID
+
+**Response**:
+- 200 OK
+```json
+{
+  "sessionId": "string",
+  "status": "ended",
+  "endedAt": "timestamp"
+}
+```
+
+### POST /content/index
+Index book content into the vector database
+
+**Request**:
+```json
+{
+  "content": [
+    {
+      "chunkId": "string",
+      "title": "string",
+      "content": "string",
+      "sourceUrl": "string",
+      "metadata": "object"
+    }
+  ]
+}
+```
+
+**Response**:
+- 200 OK
+```json
+{
+  "indexedCount": "number",
+  "status": "completed",
+  "timestamp": "timestamp"
+}
+```
+
+## Error Responses
+
+All endpoints may return the following error responses:
+
+- 400 Bad Request
+```json
+{
+  "error": "string",
+  "message": "string",
+  "code": "string"
+}
+```
+
+- 401 Unauthorized
+```json
+{
+  "error": "unauthorized",
+  "message": "Authentication required",
+  "code": "AUTH_001"
+}
+```
+
+- 404 Not Found
+```json
+{
+  "error": "not_found",
+  "message": "Resource not found",
+  "code": "NOT_FOUND_001"
+}
+```
+
+- 500 Internal Server Error
+```json
+{
+  "error": "internal_error",
+  "message": "An unexpected error occurred",
+  "code": "INTERNAL_001"
+}
+```
+
+## Common Error Codes
+
+- `AUTH_001`: Authentication required
+- `CHAT_001`: Chat session not found
+- `CHAT_002`: Chat session inactive
+- `CONTENT_001`: Content indexing failed
+- `RAG_001`: RAG processing error
+- `INTERNAL_001`: Internal server error
+
+## Data Types
+
+### Timestamp
+String in ISO 8601 format: `YYYY-MM-DDTHH:MM:SS.sssZ`
+
+### Message Sender
+Enum values: `"user"`, `"bot"`
+
+### Relevance Score
+Number between 0 and 1, where 1 is the highest relevance
