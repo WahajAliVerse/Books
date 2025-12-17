@@ -2,8 +2,8 @@
 // `@type` JSDoc annotations allow IDEs and type checkers to infer types
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Physical AI & Humanoid Robotics: Design, Simulation, and Deployment',
-  tagline: 'Comprehensive guide to humanoid robotics with ROS 2, AI, and simulation',
+  title: 'Physical AI & Humanoid Robotics: Professional Guide to Design, Simulation, and Deployment',
+  tagline: 'Comprehensive professional guide to humanoid robotics with ROS 2, AI, and simulation',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -154,7 +154,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Book. Built with 💙 by Wahaj Ali.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Professional Book Series. All rights reserved.`,
       },
       prism: {
         theme: require('prism-react-renderer').themes.github,
